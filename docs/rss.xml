@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>子正博客</title><link>https://Abner1995.github.io</link><description>子正博客</description><copyright>子正博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/15809315?v=4</url><title>avatar</title><link>https://Abner1995.github.io</link></image><lastBuildDate>Sat, 31 Aug 2024 02:41:22 +0000</lastBuildDate><managingEditor>子正博客</managingEditor><ttl>60</ttl><webMaster>子正博客</webMaster><item><title>如何利用dotnet maui CollectionView实现聊天页面</title><link>https://Abner1995.github.io/post/ru-he-li-yong-dotnet%20maui%20CollectionView-shi-xian-liao-tian-ye-mian.html</link><description>**MessageDetailPage.xaml**&#13;
-`&lt;?xml version='1.0' encoding='utf-8' ?&gt;&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>子正博客</title><link>https://Abner1995.github.io</link><description>子正博客</description><copyright>子正博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://avatars.githubusercontent.com/u/15809315?v=4</url><title>avatar</title><link>https://Abner1995.github.io</link></image><lastBuildDate>Sat, 31 Aug 2024 02:46:18 +0000</lastBuildDate><managingEditor>子正博客</managingEditor><ttl>60</ttl><webMaster>子正博客</webMaster><item><title>如何利用dotnet maui CollectionView实现聊天页面</title><link>https://Abner1995.github.io/post/ru-he-li-yong-dotnet%20maui%20CollectionView-shi-xian-liao-tian-ye-mian.html</link><description>**MessageDetailPage.xaml**&#13;
+&#13;
+```&#13;
+&lt;?xml version='1.0' encoding='utf-8' ?&gt;&#13;
 &lt;ContentPage&#13;
     x:Class='ContactSMS.Client.Views.MessageDetailPage'&#13;
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'&#13;
@@ -44,11 +46,13 @@
     &lt;/ScrollView&gt;&#13;
 &#13;
 &#13;
-&lt;/ContentPage&gt;`&#13;
+&lt;/ContentPage&gt;&#13;
+```&#13;
 &#13;
 **SenderChatMessageItemTemplate**&#13;
 &#13;
-`&lt;?xml version='1.0' encoding='utf-8' ?&gt;&#13;
+```&#13;
+&lt;?xml version='1.0' encoding='utf-8' ?&gt;&#13;
 &lt;ContentView&#13;
     x:Class='ContactSMS.Client.Views.Templates.SenderChatMessageItemTemplate'&#13;
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'&#13;
@@ -97,11 +101,12 @@
     &lt;/Grid&gt;&#13;
 &#13;
 &lt;/ContentView&gt;&#13;
-`&#13;
+```&#13;
 &#13;
 **ReceiverChatMessageItemTemplate.xaml**&#13;
 &#13;
-`&lt;?xml version='1.0' encoding='utf-8' ?&gt;&#13;
+```&#13;
+&lt;?xml version='1.0' encoding='utf-8' ?&gt;&#13;
 &lt;ContentView&#13;
     x:Class='ContactSMS.Client.Views.Templates.ReceiverChatMessageItemTemplate'&#13;
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'&#13;
@@ -150,10 +155,11 @@
     &lt;/Grid&gt;&#13;
 &#13;
 &lt;/ContentView&gt;&#13;
-`&#13;
-MessageDataTemplateSelector 必须要是public，&#13;
-`using ContactSMS.Client.Models;&#13;
+```&#13;
 &#13;
+**MessageDataTemplateSelector.cs 必须要是public，**&#13;
+&#13;
+```&#13;
 namespace ContactSMS.Client.Views.Templates&#13;
 {&#13;
     public class MessageDataTemplateSelector : DataTemplateSelector&#13;
@@ -172,4 +178,4 @@ namespace ContactSMS.Client.Views.Templates&#13;
         }&#13;
     }&#13;
 }&#13;
-`。</description><guid isPermaLink="true">https://Abner1995.github.io/post/ru-he-li-yong-dotnet%20maui%20CollectionView-shi-xian-liao-tian-ye-mian.html</guid><pubDate>Sat, 31 Aug 2024 02:36:58 +0000</pubDate></item></channel></rss>
+```。</description><guid isPermaLink="true">https://Abner1995.github.io/post/ru-he-li-yong-dotnet%20maui%20CollectionView-shi-xian-liao-tian-ye-mian.html</guid><pubDate>Sat, 31 Aug 2024 02:36:58 +0000</pubDate></item></channel></rss>

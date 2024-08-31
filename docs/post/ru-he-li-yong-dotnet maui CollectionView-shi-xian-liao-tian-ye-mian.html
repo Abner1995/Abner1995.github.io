@@ -11,7 +11,9 @@
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
 <meta name="description" content="**MessageDetailPage.xaml**
-`<?xml version='1.0' encoding='utf-8' ?>
+
+```
+<?xml version='1.0' encoding='utf-8' ?>
 <ContentPage
     x:Class='ContactSMS.Client.Views.MessageDetailPage'
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'
@@ -55,11 +57,13 @@
     </ScrollView>
 
 
-</ContentPage>`
+</ContentPage>
+```
 
 **SenderChatMessageItemTemplate**
 
-`<?xml version='1.0' encoding='utf-8' ?>
+```
+<?xml version='1.0' encoding='utf-8' ?>
 <ContentView
     x:Class='ContactSMS.Client.Views.Templates.SenderChatMessageItemTemplate'
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'
@@ -108,11 +112,12 @@
     </Grid>
 
 </ContentView>
-`
+```
 
 **ReceiverChatMessageItemTemplate.xaml**
 
-`<?xml version='1.0' encoding='utf-8' ?>
+```
+<?xml version='1.0' encoding='utf-8' ?>
 <ContentView
     x:Class='ContactSMS.Client.Views.Templates.ReceiverChatMessageItemTemplate'
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'
@@ -161,10 +166,11 @@
     </Grid>
 
 </ContentView>
-`
-MessageDataTemplateSelector 必须要是public，
-`using ContactSMS.Client.Models;
+```
 
+**MessageDataTemplateSelector.cs 必须要是public，**
+
+```
 namespace ContactSMS.Client.Views.Templates
 {
     public class MessageDataTemplateSelector : DataTemplateSelector
@@ -183,10 +189,12 @@ namespace ContactSMS.Client.Views.Templates
         }
     }
 }
-`。">
+```。">
 <meta property="og:title" content="如何利用dotnet maui CollectionView实现聊天页面">
 <meta property="og:description" content="**MessageDetailPage.xaml**
-`<?xml version='1.0' encoding='utf-8' ?>
+
+```
+<?xml version='1.0' encoding='utf-8' ?>
 <ContentPage
     x:Class='ContactSMS.Client.Views.MessageDetailPage'
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'
@@ -230,11 +238,13 @@ namespace ContactSMS.Client.Views.Templates
     </ScrollView>
 
 
-</ContentPage>`
+</ContentPage>
+```
 
 **SenderChatMessageItemTemplate**
 
-`<?xml version='1.0' encoding='utf-8' ?>
+```
+<?xml version='1.0' encoding='utf-8' ?>
 <ContentView
     x:Class='ContactSMS.Client.Views.Templates.SenderChatMessageItemTemplate'
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'
@@ -283,11 +293,12 @@ namespace ContactSMS.Client.Views.Templates
     </Grid>
 
 </ContentView>
-`
+```
 
 **ReceiverChatMessageItemTemplate.xaml**
 
-`<?xml version='1.0' encoding='utf-8' ?>
+```
+<?xml version='1.0' encoding='utf-8' ?>
 <ContentView
     x:Class='ContactSMS.Client.Views.Templates.ReceiverChatMessageItemTemplate'
     xmlns='http://schemas.microsoft.com/dotnet/2021/maui'
@@ -336,10 +347,11 @@ namespace ContactSMS.Client.Views.Templates
     </Grid>
 
 </ContentView>
-`
-MessageDataTemplateSelector 必须要是public，
-`using ContactSMS.Client.Models;
+```
 
+**MessageDataTemplateSelector.cs 必须要是public，**
+
+```
 namespace ContactSMS.Client.Views.Templates
 {
     public class MessageDataTemplateSelector : DataTemplateSelector
@@ -358,7 +370,7 @@ namespace ContactSMS.Client.Views.Templates
         }
     }
 }
-`。">
+```。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://Abner1995.github.io/post/ru-he-li-yong-dotnet%20maui%20CollectionView-shi-xian-liao-tian-ye-mian.html">
 <meta property="og:image" content="https://avatars.githubusercontent.com/u/15809315?v=4">
@@ -429,153 +441,175 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p><strong>MessageDetailPage.xaml</strong><br>
-`<br>
-</p>
-<pre class="notranslate"><code class="notranslate">&lt;ContentPage.Resources&gt;
-    &lt;ResourceDictionary&gt;
+<div class="markdown-body" id="postBody"><p><strong>MessageDetailPage.xaml</strong></p>
+<pre class="notranslate"><code class="notranslate">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentPage
+    x:Class="ContactSMS.Client.Views.MessageDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:ContactSMS.Client.Models"
+    xmlns:templates="clr-namespace:ContactSMS.Client.Views.Templates"
+    xmlns:vm="clr-namespace:ContactSMS.Client.ViewModels"
+    Title="消息详情"
+    x:DataType="vm:MessageViewModel"&gt;
 
-        &lt;DataTemplate x:Key="ReceiverChatMessageItemTemplate" x:DataType="model:MessageDetailModel"&gt;
-            &lt;templates:ReceiverChatMessageItemTemplate /&gt;
-        &lt;/DataTemplate&gt;
+    &lt;ContentPage.Resources&gt;
+        &lt;ResourceDictionary&gt;
 
-        &lt;DataTemplate x:Key="SenderChatMessageItemTemplate" x:DataType="model:MessageDetailModel"&gt;
-            &lt;templates:SenderChatMessageItemTemplate /&gt;
-        &lt;/DataTemplate&gt;
+            &lt;DataTemplate x:Key="ReceiverChatMessageItemTemplate" x:DataType="model:MessageDetailModel"&gt;
+                &lt;templates:ReceiverChatMessageItemTemplate /&gt;
+            &lt;/DataTemplate&gt;
 
-        &lt;templates:MessageDataTemplateSelector
-            x:Key="MessageDataTemplateSelector"
-            ReceiverMessageTemplate="{StaticResource ReceiverChatMessageItemTemplate}"
-            SenderMessageTemplate="{StaticResource SenderChatMessageItemTemplate}" /&gt;
+            &lt;DataTemplate x:Key="SenderChatMessageItemTemplate" x:DataType="model:MessageDetailModel"&gt;
+                &lt;templates:SenderChatMessageItemTemplate /&gt;
+            &lt;/DataTemplate&gt;
 
-        &lt;Style x:Key="ChatCollectionStyle" TargetType="CollectionView"&gt;
-            &lt;Setter Property="Margin" Value="20" /&gt;
-        &lt;/Style&gt;
-    &lt;/ResourceDictionary&gt;
-&lt;/ContentPage.Resources&gt;
+            &lt;templates:MessageDataTemplateSelector
+                x:Key="MessageDataTemplateSelector"
+                ReceiverMessageTemplate="{StaticResource ReceiverChatMessageItemTemplate}"
+                SenderMessageTemplate="{StaticResource SenderChatMessageItemTemplate}" /&gt;
+
+            &lt;Style x:Key="ChatCollectionStyle" TargetType="CollectionView"&gt;
+                &lt;Setter Property="Margin" Value="20" /&gt;
+            &lt;/Style&gt;
+        &lt;/ResourceDictionary&gt;
+    &lt;/ContentPage.Resources&gt;
 
 
-&lt;ScrollView&gt;
+    &lt;ScrollView&gt;
 
-    &lt;CollectionView
-        ItemTemplate="{StaticResource MessageDataTemplateSelector}"
-        ItemsSource="{Binding Messages}"
-        Style="{StaticResource ChatCollectionStyle}" /&gt;
+        &lt;CollectionView
+            ItemTemplate="{StaticResource MessageDataTemplateSelector}"
+            ItemsSource="{Binding Messages}"
+            Style="{StaticResource ChatCollectionStyle}" /&gt;
 
-&lt;/ScrollView&gt;
+    &lt;/ScrollView&gt;
+
+
+&lt;/ContentPage&gt;
 </code></pre>
-<p>`</p>
 <p><strong>SenderChatMessageItemTemplate</strong></p>
-<p>`<br>
-</p>
-<pre class="notranslate"><code class="notranslate">&lt;ContentView.Resources&gt;
-    &lt;ResourceDictionary&gt;
-        &lt;Style x:Key="SenderContainerStyle" TargetType="Grid"&gt;
-            &lt;Setter Property="HorizontalOptions" Value="End" /&gt;
-            &lt;Setter Property="Margin" Value="0,15" /&gt;
-        &lt;/Style&gt;
+<pre class="notranslate"><code class="notranslate">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentView
+    x:Class="ContactSMS.Client.Views.Templates.SenderChatMessageItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:ContactSMS.Client.Models"
+    x:DataType="model:MessageDetailModel"&gt;
 
-        &lt;Style x:Key="MessageTextStyle" TargetType="Label"&gt;
-            &lt;Setter Property="FontSize" Value="14" /&gt;
-            &lt;Setter Property="TextColor" Value="Black" /&gt;
-            &lt;Setter Property="Padding" Value="10" /&gt;
-        &lt;/Style&gt;
+    &lt;ContentView.Resources&gt;
+        &lt;ResourceDictionary&gt;
+            &lt;Style x:Key="SenderContainerStyle" TargetType="Grid"&gt;
+                &lt;Setter Property="HorizontalOptions" Value="End" /&gt;
+                &lt;Setter Property="Margin" Value="0,15" /&gt;
+            &lt;/Style&gt;
 
-        &lt;Color x:Key="MessageColor"&gt;#D8E9F1&lt;/Color&gt;
+            &lt;Style x:Key="MessageTextStyle" TargetType="Label"&gt;
+                &lt;Setter Property="FontSize" Value="14" /&gt;
+                &lt;Setter Property="TextColor" Value="Black" /&gt;
+                &lt;Setter Property="Padding" Value="10" /&gt;
+            &lt;/Style&gt;
 
-        &lt;Style x:Key="MessageShapeStyle" TargetType="BoxView"&gt;
-            &lt;Setter Property="Color" Value="{StaticResource MessageColor}" /&gt;
-            &lt;Setter Property="CornerRadius" Value="24, 0, 24, 24" /&gt;
-        &lt;/Style&gt;
+            &lt;Color x:Key="MessageColor"&gt;#D8E9F1&lt;/Color&gt;
 
-        &lt;Style x:Key="MessageTimeStyle" TargetType="Label"&gt;
-            &lt;Setter Property="TextColor" Value="#A5A4A9" /&gt;
-            &lt;Setter Property="HorizontalOptions" Value="End" /&gt;
-            &lt;Setter Property="Margin" Value="0,5,0,0" /&gt;
-        &lt;/Style&gt;
+            &lt;Style x:Key="MessageShapeStyle" TargetType="BoxView"&gt;
+                &lt;Setter Property="Color" Value="{StaticResource MessageColor}" /&gt;
+                &lt;Setter Property="CornerRadius" Value="24, 0, 24, 24" /&gt;
+            &lt;/Style&gt;
 
-    &lt;/ResourceDictionary&gt;
-&lt;/ContentView.Resources&gt;
+            &lt;Style x:Key="MessageTimeStyle" TargetType="Label"&gt;
+                &lt;Setter Property="TextColor" Value="#A5A4A9" /&gt;
+                &lt;Setter Property="HorizontalOptions" Value="End" /&gt;
+                &lt;Setter Property="Margin" Value="0,5,0,0" /&gt;
+            &lt;/Style&gt;
 
-&lt;Grid RowDefinitions="*,20" Style="{StaticResource SenderContainerStyle}"&gt;
-    &lt;Grid&gt;
-        &lt;BoxView Style="{StaticResource MessageShapeStyle}" /&gt;
-        &lt;Label Style="{StaticResource MessageTextStyle}" Text="{Binding Content}" /&gt;
+        &lt;/ResourceDictionary&gt;
+    &lt;/ContentView.Resources&gt;
+
+    &lt;Grid RowDefinitions="*,20" Style="{StaticResource SenderContainerStyle}"&gt;
+        &lt;Grid&gt;
+            &lt;BoxView Style="{StaticResource MessageShapeStyle}" /&gt;
+            &lt;Label Style="{StaticResource MessageTextStyle}" Text="{Binding Content}" /&gt;
+        &lt;/Grid&gt;
+        &lt;Label
+            Grid.Row="1"
+            Style="{StaticResource MessageTimeStyle}"
+            Text="{Binding Date}" /&gt;
     &lt;/Grid&gt;
-    &lt;Label
-        Grid.Row="1"
-        Style="{StaticResource MessageTimeStyle}"
-        Text="{Binding Date}" /&gt;
-&lt;/Grid&gt;
-</code></pre>
 
-`
+&lt;/ContentView&gt;
+</code></pre>
 <p><strong>ReceiverChatMessageItemTemplate.xaml</strong></p>
-<p>`<br>
-</p>
-<pre class="notranslate"><code class="notranslate">&lt;ContentView.Resources&gt;
-    &lt;ResourceDictionary&gt;
-        &lt;Style x:Key="ReceiverContainerStyle" TargetType="Grid"&gt;
-            &lt;Setter Property="HorizontalOptions" Value="Start" /&gt;
-        &lt;/Style&gt;
+<pre class="notranslate"><code class="notranslate">&lt;?xml version="1.0" encoding="utf-8" ?&gt;
+&lt;ContentView
+    x:Class="ContactSMS.Client.Views.Templates.ReceiverChatMessageItemTemplate"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:ContactSMS.Client.Models"
+    x:DataType="model:MessageDetailModel"&gt;
 
-        &lt;Style x:Key="MessageTextStyle" TargetType="Label"&gt;
-            &lt;Setter Property="FontSize" Value="14" /&gt;
-            &lt;Setter Property="TextColor" Value="Black" /&gt;
-            &lt;Setter Property="Padding" Value="10" /&gt;
-            &lt;Setter Property="Margin" Value="0,0,0,5" /&gt;
-        &lt;/Style&gt;
+    &lt;ContentView.Resources&gt;
+        &lt;ResourceDictionary&gt;
+            &lt;Style x:Key="ReceiverContainerStyle" TargetType="Grid"&gt;
+                &lt;Setter Property="HorizontalOptions" Value="Start" /&gt;
+            &lt;/Style&gt;
 
-        &lt;Color x:Key="MessageColor"&gt;#9297A1&lt;/Color&gt;
+            &lt;Style x:Key="MessageTextStyle" TargetType="Label"&gt;
+                &lt;Setter Property="FontSize" Value="14" /&gt;
+                &lt;Setter Property="TextColor" Value="Black" /&gt;
+                &lt;Setter Property="Padding" Value="10" /&gt;
+                &lt;Setter Property="Margin" Value="0,0,0,5" /&gt;
+            &lt;/Style&gt;
 
-        &lt;Style x:Key="MessageShapeStyle" TargetType="BoxView"&gt;
-            &lt;Setter Property="Color" Value="{StaticResource MessageColor}" /&gt;
-            &lt;Setter Property="CornerRadius" Value="0, 24, 24, 24" /&gt;
-        &lt;/Style&gt;
+            &lt;Color x:Key="MessageColor"&gt;#9297A1&lt;/Color&gt;
 
-        &lt;Style x:Key="MessageTimeStyle" TargetType="Label"&gt;
-            &lt;Setter Property="TextColor" Value="#A5A4A9" /&gt;
-            &lt;Setter Property="HorizontalOptions" Value="Start" /&gt;
-            &lt;Setter Property="Margin" Value="0,5,0,0" /&gt;
-        &lt;/Style&gt;
+            &lt;Style x:Key="MessageShapeStyle" TargetType="BoxView"&gt;
+                &lt;Setter Property="Color" Value="{StaticResource MessageColor}" /&gt;
+                &lt;Setter Property="CornerRadius" Value="0, 24, 24, 24" /&gt;
+            &lt;/Style&gt;
 
-    &lt;/ResourceDictionary&gt;
-&lt;/ContentView.Resources&gt;
+            &lt;Style x:Key="MessageTimeStyle" TargetType="Label"&gt;
+                &lt;Setter Property="TextColor" Value="#A5A4A9" /&gt;
+                &lt;Setter Property="HorizontalOptions" Value="Start" /&gt;
+                &lt;Setter Property="Margin" Value="0,5,0,0" /&gt;
+            &lt;/Style&gt;
 
-&lt;Grid RowDefinitions="*,20" Style="{StaticResource ReceiverContainerStyle}"&gt;
-    &lt;Grid&gt;
-        &lt;BoxView Style="{StaticResource MessageShapeStyle}" /&gt;
-        &lt;Label Style="{StaticResource MessageTextStyle}" Text="{Binding Content}" /&gt;
+        &lt;/ResourceDictionary&gt;
+    &lt;/ContentView.Resources&gt;
+
+    &lt;Grid RowDefinitions="*,20" Style="{StaticResource ReceiverContainerStyle}"&gt;
+        &lt;Grid&gt;
+            &lt;BoxView Style="{StaticResource MessageShapeStyle}" /&gt;
+            &lt;Label Style="{StaticResource MessageTextStyle}" Text="{Binding Content}" /&gt;
+        &lt;/Grid&gt;
+        &lt;Label
+            Grid.Row="1"
+            Style="{StaticResource MessageTimeStyle}"
+            Text="{Binding Date}" /&gt;
     &lt;/Grid&gt;
-    &lt;Label
-        Grid.Row="1"
-        Style="{StaticResource MessageTimeStyle}"
-        Text="{Binding Date}" /&gt;
-&lt;/Grid&gt;
+
+&lt;/ContentView&gt;
 </code></pre>
-
-`
-MessageDataTemplateSelector 必须要是public，
-`using ContactSMS.Client.Models;
-<p>namespace ContactSMS.Client.Views.Templates<br>
-{<br>
-public class MessageDataTemplateSelector : DataTemplateSelector<br>
-{<br>
-public DataTemplate SenderMessageTemplate { get; set; }<br>
-public DataTemplate ReceiverMessageTemplate { get; set; }</p>
-<pre class="notranslate"><code class="notranslate">    protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
+<p><strong>MessageDataTemplateSelector.cs 必须要是public，</strong></p>
+<pre class="notranslate"><code class="notranslate">namespace ContactSMS.Client.Views.Templates
+{
+    public class MessageDataTemplateSelector : DataTemplateSelector
     {
-        var message = (MessageDetailModel)item;
+        public DataTemplate SenderMessageTemplate { get; set; }
+        public DataTemplate ReceiverMessageTemplate { get; set; }
 
-        if (message.UserId == 0)
-            return ReceiverMessageTemplate;
+        protected override DataTemplate OnSelectTemplate(object item, BindableObject container)
+        {
+            var message = (MessageDetailModel)item;
 
-        return SenderMessageTemplate;
+            if (message.UserId == 0)
+                return ReceiverMessageTemplate;
+
+            return SenderMessageTemplate;
+        }
     }
 }
-</code></pre>
-<p>}<br>
-`</p></div>
+</code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

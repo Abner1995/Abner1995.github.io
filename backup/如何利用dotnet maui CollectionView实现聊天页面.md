@@ -1,5 +1,7 @@
 **MessageDetailPage.xaml**
-`<?xml version="1.0" encoding="utf-8" ?>
+
+```
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
     x:Class="ContactSMS.Client.Views.MessageDetailPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -43,11 +45,13 @@
     </ScrollView>
 
 
-</ContentPage>`
+</ContentPage>
+```
 
 **SenderChatMessageItemTemplate**
 
-`<?xml version="1.0" encoding="utf-8" ?>
+```
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentView
     x:Class="ContactSMS.Client.Views.Templates.SenderChatMessageItemTemplate"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -96,11 +100,12 @@
     </Grid>
 
 </ContentView>
-`
+```
 
 **ReceiverChatMessageItemTemplate.xaml**
 
-`<?xml version="1.0" encoding="utf-8" ?>
+```
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentView
     x:Class="ContactSMS.Client.Views.Templates.ReceiverChatMessageItemTemplate"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -149,10 +154,11 @@
     </Grid>
 
 </ContentView>
-`
-MessageDataTemplateSelector 必须要是public，
-`using ContactSMS.Client.Models;
+```
 
+**MessageDataTemplateSelector.cs 必须要是public，**
+
+```
 namespace ContactSMS.Client.Views.Templates
 {
     public class MessageDataTemplateSelector : DataTemplateSelector
@@ -171,4 +177,4 @@ namespace ContactSMS.Client.Views.Templates
         }
     }
 }
-`
+```
